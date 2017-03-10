@@ -1,0 +1,26 @@
+{
+  "name": "foodmenu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:js": "browserify src/js/index.js -d -t babelify -o build/bundle.js",
+    "watch:js": "watchify src/js/index.js -d -v -t babelify -o build/bundle.js",
+    "build:scss": "node-sass src/scss/styles.scss --output build --source-map-embed --source-map-contents",
+    "watch:scss": "npm run build:scss --watch",
+    "build": "npm run build:js && npm run build:scss",
+    "serve": "npm run watch:js -- & > /dev/null 2>&1; npm run watch:scss -- & > /dev/null 2>&1; lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.2.1",
+    "install": "^0.8.7",
+    "npm": "^4.4.1"
+  },
+  "dependencies": {
+    "bulma": "^0.3.2"
+  }
+}
